@@ -1,5 +1,8 @@
 <?php
 
+$hero = htmlspecialchars($_GET['hero'], ENT_COMPAT);
+$hero = strip_tags($hero);
+
 $superheroes = [
   [
       "id" => 1,
@@ -63,10 +66,27 @@ $superheroes = [
   ], 
 ];
 
+
+if (empty($hero)) {  
+    foreach ($superheroes as $shero):
+        echo "<li>".$shero['alias']."</li>";    
+    endforeach;
+} 
+elseif (array_search($hero, array_column($superheroes,"alias")) !== false || 
+array_search($hero, array_column($superheroes,"name")) !== false)
+{
+    foreach ($superheroes as $shero):
+        if ($shero['alias'] === $hero or $shero['name'] === $hero){            
+            echo $shero['alias'] . "\n" . $shero['name'] . "\n" . $shero['biography'];
+            #echo "<p>" . $shero['biography'] . "</p>";
+        }           
+    endforeach; 
+}
+else { 
+    echo "Superhero not found";    
+} 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
+
+

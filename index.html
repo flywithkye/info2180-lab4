@@ -8,12 +8,38 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Avengers Character Search</h1>
+    <header>        
+        <img id=banner src="pics/banner.jpg" alt=""> 
     </header>
-    <div>
-        <button id="search">Search</button>
-    </div>
+    <main>
+        <div class="hero-search">
+            <div class="avengers">
+                <h1>GET TO KNOW THE AVENGERS!</h1>
+            </div>
+            <div class="container">
+                <form action="superheroes.php" method="post">             
+                    <p> Search by Full Name or Alias (leave empty to see all heroes):</p>
+                    <div class="form-group">
+                        <input type="text" id="hero" name="hero" placeholder="e.g. black widow or Black Panther or T'challa">
+                        <button type="submit" id="search">SEARCH</button>
+                    </div>
+                </form>                
+            </div>
+            <div class="container">
+                <div class="results">
+                    <div id="result-title">
+                        <h2>HEROES</h2>
+                    </div>                
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2023, Dayna Clare.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
